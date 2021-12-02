@@ -7,4 +7,7 @@ class ProfilePage(BasePage):
     _logout_button = (By.CLASS_NAME, '.link-logout')
 
     def logout(self):
-        self._driver.get_element(*self._logout_button).click()
+        self.get_element(*self._logout_button).click()
+
+    def should_be_profile_page_url(self):
+        assert self._url == self._driver.current_url, "It's not profile page url"

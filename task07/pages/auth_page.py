@@ -10,19 +10,19 @@ class AuthPage(BasePage):
     _enter_button = (By.ID, 'loginByPwdButton')
 
     def fill_login_input(self, login):
-        self._driver.get_element(*self._login_input).send_keys(login)
+        self.get_element(*self._login_input).send_keys(login)
 
     def fill_pwd_input(self, pwd):
-        self._driver.get_element(*self._pwd_input).send_keys(pwd)
+        self.get_element(*self._pwd_input).send_keys(pwd)
 
     def click_enter_btn(self):
-        self._driver.get_element(*self._enter_button).click()
+        self.get_element(*self._enter_button).click()
 
     def should_be_err_msg_incorrect_login(self):
-        assert self._driver.text_is_displayed("Введите телефон, почту или СНИЛС"), "Error message is not displayed"
+        assert self.text_is_displayed("Введите телефон, почту или СНИЛС"), "Error message is not displayed"
 
     def should_be_err_msg_incorrect_pwd(self):
-        assert self._driver.text_is_displayed("Введен неверный логин или пароль"), "Error message is not displayed"
+        assert self.text_is_displayed("Введен неверный логин или пароль"), "Error message is not displayed"
 
     def should_be_profile_page_open(self):
-        assert self._driver.current_url == 'https://esia-portal1.test.gosuslugi.ru/profile/user/personal'
+        assert self.current_url == 'https://esia-portal1.test.gosuslugi.ru/profile/user/personal'

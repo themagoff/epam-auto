@@ -1,4 +1,5 @@
 from task07.pages.auth_page import AuthPage
+from task07.pages.profile_page import ProfilePage
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -27,7 +28,8 @@ def test_correct_login_and_pwd():
     driver = webdriver.Chrome(ChromeDriverManager().install())
     page = AuthPage(driver)
     page.open()
-    page.fill_login_input('test@test.com')
-    page.fill_pwd_input('correct_pwd')
+    page.fill_login_input('')
+    page.fill_pwd_input('')
     page.click_enter_btn()
-    page.should_be_profile_page_open()
+    profile_page = ProfilePage(driver)
+    profile_page.should_be_profile_page_url()
