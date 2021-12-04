@@ -1,11 +1,8 @@
 from task07.pages.auth_page import AuthPage
 from task07.pages.profile_page import ProfilePage
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
 
-def test_incorrect_login():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+def test_incorrect_login(driver):
     page = AuthPage(driver)
     page.open()
     page.fill_login_input('incorrect_login')
@@ -14,8 +11,7 @@ def test_incorrect_login():
     page.should_be_err_msg_incorrect_login()
 
 
-def test_incorrect_pwd():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+def test_incorrect_pwd(driver):
     page = AuthPage(driver)
     page.open()
     page.fill_login_input('test@test.com')
@@ -24,8 +20,7 @@ def test_incorrect_pwd():
     page.should_be_err_msg_incorrect_pwd()
 
 
-def test_correct_login_and_pwd():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+def test_correct_login_and_pwd(driver):
     page = AuthPage(driver)
     page.open()
     page.fill_login_input('')
