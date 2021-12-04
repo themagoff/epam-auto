@@ -8,6 +8,6 @@ script, file = argv
 try:
     subprocess.run(file)
 except FileNotFoundError:
-    print(f'Файл {file} не существует')
-except:
-    print(f'Не удаётся запустить {file}')
+    print(f'File {file} does not exist')
+except Exception as e:
+    print(f'Error is {e}')

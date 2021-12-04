@@ -23,6 +23,3 @@ class AuthPage(BasePage):
 
     def should_be_err_msg_incorrect_pwd(self):
         assert self.text_is_displayed("Введен неверный логин или пароль"), "Error message is not displayed"
-
-    def should_be_profile_page_open(self):
-        assert self.current_url == 'https://esia-portal1.test.gosuslugi.ru/profile/user/personal'
